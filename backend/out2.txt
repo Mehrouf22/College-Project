@@ -1,0 +1,312 @@
+◇ injected env (4) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Server is running on port 5000
+MongoDB connection error: MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\mongoose\lib\connection.js:1180:11)
+    at NativeConnection.openUri (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\mongoose\lib\connection.js:1111:11) {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { '127.0.0.1:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  cause: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { '127.0.0.1:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  }
+}
+Could not save history: Operation `histories.insertOne()` buffering timed out after 10000ms
+Error generating content: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:432:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async makeRequest (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:401:9)
+    at async generateContent (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:865:22)
+    at async file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/google-genai/dist/chat_models.js:602:12
+    at async pRetry (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/core/dist/utils/p-retry/index.js:122:19)
+    at async run (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\p-queue\dist\index.js:163:29) {
+  status: 404,
+  statusText: 'Not Found',
+  errorDetails: undefined,
+  pregelTaskId: '1916b6f4-9422-55f4-bb11-758aabbe3c9d'
+}
+Error generating component: SDKError: API error occurred: Status 401 Content-Type "application/json; charset=utf-8". Body: {"detail":"Unauthorized"}
+    at matchFunc (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\@mistralai\mistralai\lib\matchers.js:150:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async $do (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\@mistralai\mistralai\funcs\chatStream.js:115:22) {
+  statusCode: 401,
+  body: '{"detail":"Unauthorized"}',
+  headers: Headers {
+    date: 'Mon, 06 Apr 2026 20:11:06 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '25',
+    connection: 'keep-alive',
+    'mistral-correlation-id': '019d646b-9946-7564-b81b-8a0b83ea4305',
+    'x-kong-request-id': '019d646b-9946-7564-b81b-8a0b83ea4305',
+    'access-control-allow-origin': '*',
+    'x-kong-response-latency': '11',
+    'set-cookie': '__cf_bm=XAlzhZTL2MeRKd8XtHPDCO0p505M3UdrAePBo_TiMv4-1775506266.3425515-1.0.1.1-7bNeQ6nQVJjW8jXbXsV56hZjewDrWArL.QU8SgUJBqzt0CmLM1Y9pwhhjS8l3hXm9LraHQP8P9mZg9ndTGEvzRoU1x7yWnr3OP292rZ2Hg9dMZEoFchNzWpbuIN9zLmw; HttpOnly; Secure; Path=/; Domain=mistral.ai; Expires=Mon, 06 Apr 2026 20:41:06 GMT, _cfuvid=J2IqRQ8E4P2FB5zguVoEwao.RJGAKEazuSluzKTwLK0-1775506266.3425515-1.0.1.1-uJK9q3pIZHsmbaKRLDOprgffV0jFiquoo7M6PcqTxF8; HttpOnly; SameSite=None; Secure; Path=/; Domain=mistral.ai',
+    'x-content-type-options': 'nosniff',
+    'cf-cache-status': 'DYNAMIC',
+    'strict-transport-security': 'max-age=15552000; includeSubDomains; preload',
+    server: 'cloudflare',
+    'cf-ray': '9e837094a98317a2-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  contentType: 'application/json; charset=utf-8',
+  rawResponse: Response {
+    status: 401,
+    statusText: 'Unauthorized',
+    headers: Headers {
+      date: 'Mon, 06 Apr 2026 20:11:06 GMT',
+      'content-type': 'application/json; charset=utf-8',
+      'content-length': '25',
+      connection: 'keep-alive',
+      'mistral-correlation-id': '019d646b-9946-7564-b81b-8a0b83ea4305',
+      'x-kong-request-id': '019d646b-9946-7564-b81b-8a0b83ea4305',
+      'access-control-allow-origin': '*',
+      'x-kong-response-latency': '11',
+      'set-cookie': '__cf_bm=XAlzhZTL2MeRKd8XtHPDCO0p505M3UdrAePBo_TiMv4-1775506266.3425515-1.0.1.1-7bNeQ6nQVJjW8jXbXsV56hZjewDrWArL.QU8SgUJBqzt0CmLM1Y9pwhhjS8l3hXm9LraHQP8P9mZg9ndTGEvzRoU1x7yWnr3OP292rZ2Hg9dMZEoFchNzWpbuIN9zLmw; HttpOnly; Secure; Path=/; Domain=mistral.ai; Expires=Mon, 06 Apr 2026 20:41:06 GMT, _cfuvid=J2IqRQ8E4P2FB5zguVoEwao.RJGAKEazuSluzKTwLK0-1775506266.3425515-1.0.1.1-uJK9q3pIZHsmbaKRLDOprgffV0jFiquoo7M6PcqTxF8; HttpOnly; SameSite=None; Secure; Path=/; Domain=mistral.ai',
+      'x-content-type-options': 'nosniff',
+      'cf-cache-status': 'DYNAMIC',
+      'strict-transport-security': 'max-age=15552000; includeSubDomains; preload',
+      server: 'cloudflare',
+      'cf-ray': '9e837094a98317a2-MAA',
+      'alt-svc': 'h3=":443"; ma=86400'
+    },
+    body: ReadableStream { locked: true, state: 'closed', supportsBYOB: true },
+    bodyUsed: true,
+    ok: false,
+    redirected: false,
+    type: 'basic',
+    url: 'https://api.mistral.ai/v1/chat/completions'
+  },
+  pregelTaskId: '324fc77b-5a57-57b8-aa41-e3f9697529f3'
+}
+Error generating docs: UnauthorizedError: UnauthorizedError
+Status code: 401
+Body: {
+  "id": "c30de1ef-bed3-4c9f-9b79-5ee055cefe95",
+  "message": "Incorrect API key provided: ********************here. You can find your API key at https://dashboard.cohere.com/api-keys."
+}
+    at CustomClient.<anonymous> (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\cohere-ai\Client.js:324:31)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\cohere-ai\Client.js:39:58)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  statusCode: 401,
+  body: {
+    id: 'c30de1ef-bed3-4c9f-9b79-5ee055cefe95',
+    message: 'Incorrect API key provided: ********************here. You can find your API key at https://dashboard.cohere.com/api-keys.'
+  },
+  rawResponse: {
+    headers: Headers {
+      'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0',
+      'content-encoding': 'gzip',
+      'content-type': 'application/json',
+      expires: 'Thu, 01 Jan 1970 00:00:00 GMT',
+      pragma: 'no-cache',
+      vary: 'Origin,Accept-Encoding',
+      'x-accel-expires': '0',
+      date: 'Mon, 06 Apr 2026 20:11:27 GMT',
+      'x-envoy-upstream-service-time': '3',
+      server: 'envoy',
+      via: '1.1 google',
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'transfer-encoding': 'chunked'
+    },
+    redirected: false,
+    status: 401,
+    statusText: 'Unauthorized',
+    type: 'basic',
+    url: 'https://api.cohere.com/v1/chat'
+  },
+  status: 401,
+  pregelTaskId: 'c895e211-ecb1-5bef-845d-3add07bc1ec7'
+}
+Could not save history: Operation `histories.insertOne()` buffering timed out after 10000ms
+Error generating content: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:432:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async makeRequest (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:401:9)
+    at async generateContent (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:865:22)
+    at async file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/google-genai/dist/chat_models.js:602:12
+    at async pRetry (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/core/dist/utils/p-retry/index.js:122:19)
+    at async run (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\p-queue\dist\index.js:163:29) {
+  status: 404,
+  statusText: 'Not Found',
+  errorDetails: undefined,
+  pregelTaskId: 'b4a01c97-d5f1-5069-a065-c641610e7c32'
+}
+Error generating component: SDKError: API error occurred: Status 401 Content-Type "application/json; charset=utf-8". Body: {"detail":"Unauthorized"}
+    at matchFunc (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\@mistralai\mistralai\lib\matchers.js:150:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async $do (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\@mistralai\mistralai\funcs\chatStream.js:115:22) {
+  statusCode: 401,
+  body: '{"detail":"Unauthorized"}',
+  headers: Headers {
+    date: 'Mon, 06 Apr 2026 20:52:24 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '25',
+    connection: 'keep-alive',
+    'mistral-correlation-id': '019d6491-69e6-756a-b7d7-3105f025bf44',
+    'x-kong-request-id': '019d6491-69e6-756a-b7d7-3105f025bf44',
+    'access-control-allow-origin': '*',
+    'x-kong-response-latency': '8',
+    'set-cookie': '__cf_bm=VnpZckskqDgRPcAxG2yUtjwCHO4EHPRNHOBsa1ZBi.Y-1775508744.5799866-1.0.1.1-26FfqFd47ytjmGtV7Ew6.OPer2k3qnKdYq6sqKh6N3aOcbjvDP7hwTF9GfKmzdIm.39nwvrfFg_.Gxn2mkpFQMGo8JOHoUpVgNxo894yddj7NeO2UYrx4QkCagEpThfm; HttpOnly; Secure; Path=/; Domain=mistral.ai; Expires=Mon, 06 Apr 2026 21:22:24 GMT, _cfuvid=jAAq_90lD82RAT.GseHZewPKaeD17CyDSoy7KSVijVA-1775508744.5799866-1.0.1.1-V8KSWYs3a1eg3rlylL5pQwtnYtHFP2wNLO26qhKouAg; HttpOnly; SameSite=None; Secure; Path=/; Domain=mistral.ai',
+    'x-content-type-options': 'nosniff',
+    'cf-cache-status': 'DYNAMIC',
+    'strict-transport-security': 'max-age=15552000; includeSubDomains; preload',
+    server: 'cloudflare',
+    'cf-ray': '9e83ad159e926ce0-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  contentType: 'application/json; charset=utf-8',
+  rawResponse: Response {
+    status: 401,
+    statusText: 'Unauthorized',
+    headers: Headers {
+      date: 'Mon, 06 Apr 2026 20:52:24 GMT',
+      'content-type': 'application/json; charset=utf-8',
+      'content-length': '25',
+      connection: 'keep-alive',
+      'mistral-correlation-id': '019d6491-69e6-756a-b7d7-3105f025bf44',
+      'x-kong-request-id': '019d6491-69e6-756a-b7d7-3105f025bf44',
+      'access-control-allow-origin': '*',
+      'x-kong-response-latency': '8',
+      'set-cookie': '__cf_bm=VnpZckskqDgRPcAxG2yUtjwCHO4EHPRNHOBsa1ZBi.Y-1775508744.5799866-1.0.1.1-26FfqFd47ytjmGtV7Ew6.OPer2k3qnKdYq6sqKh6N3aOcbjvDP7hwTF9GfKmzdIm.39nwvrfFg_.Gxn2mkpFQMGo8JOHoUpVgNxo894yddj7NeO2UYrx4QkCagEpThfm; HttpOnly; Secure; Path=/; Domain=mistral.ai; Expires=Mon, 06 Apr 2026 21:22:24 GMT, _cfuvid=jAAq_90lD82RAT.GseHZewPKaeD17CyDSoy7KSVijVA-1775508744.5799866-1.0.1.1-V8KSWYs3a1eg3rlylL5pQwtnYtHFP2wNLO26qhKouAg; HttpOnly; SameSite=None; Secure; Path=/; Domain=mistral.ai',
+      'x-content-type-options': 'nosniff',
+      'cf-cache-status': 'DYNAMIC',
+      'strict-transport-security': 'max-age=15552000; includeSubDomains; preload',
+      server: 'cloudflare',
+      'cf-ray': '9e83ad159e926ce0-MAA',
+      'alt-svc': 'h3=":443"; ma=86400'
+    },
+    body: ReadableStream { locked: true, state: 'closed', supportsBYOB: true },
+    bodyUsed: true,
+    ok: false,
+    redirected: false,
+    type: 'basic',
+    url: 'https://api.mistral.ai/v1/chat/completions'
+  },
+  pregelTaskId: 'a1350114-3611-5bb6-a746-c01f74403989'
+}
+Error generating content: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:432:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async makeRequest (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:401:9)
+    at async generateContent (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:865:22)
+    at async file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/google-genai/dist/chat_models.js:602:12
+    at async pRetry (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/core/dist/utils/p-retry/index.js:122:19)
+    at async run (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\p-queue\dist\index.js:163:29) {
+  status: 404,
+  statusText: 'Not Found',
+  errorDetails: undefined,
+  pregelTaskId: '1a9e4996-ebc1-56ee-bb4f-d2302ca7c8e8'
+}
+Error generating docs: UnauthorizedError: UnauthorizedError
+Status code: 401
+Body: {
+  "id": "c83081ab-d46b-416e-ad6c-40b444b1b985",
+  "message": "Incorrect API key provided: ********************here. You can find your API key at https://dashboard.cohere.com/api-keys."
+}
+    at CustomClient.<anonymous> (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\cohere-ai\Client.js:324:31)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\cohere-ai\Client.js:39:58)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  statusCode: 401,
+  body: {
+    id: 'c83081ab-d46b-416e-ad6c-40b444b1b985',
+    message: 'Incorrect API key provided: ********************here. You can find your API key at https://dashboard.cohere.com/api-keys.'
+  },
+  rawResponse: {
+    headers: Headers {
+      'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0',
+      'content-encoding': 'gzip',
+      'content-type': 'application/json',
+      expires: 'Thu, 01 Jan 1970 00:00:00 GMT',
+      pragma: 'no-cache',
+      vary: 'Origin,Accept-Encoding',
+      'x-accel-expires': '0',
+      date: 'Mon, 06 Apr 2026 20:54:09 GMT',
+      'x-envoy-upstream-service-time': '2',
+      server: 'envoy',
+      via: '1.1 google',
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'transfer-encoding': 'chunked'
+    },
+    redirected: false,
+    status: 401,
+    statusText: 'Unauthorized',
+    type: 'basic',
+    url: 'https://api.cohere.com/v1/chat'
+  },
+  status: 401,
+  pregelTaskId: '4f7a731d-58de-53bf-a611-16faa4594143'
+}
+Error generating content: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [400 Bad Request] API key expired. Please renew the API key. [{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"API_KEY_INVALID","domain":"googleapis.com","metadata":{"service":"generativelanguage.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"API key expired. Please renew the API key."}]
+    at handleResponseNotOk (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:432:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async makeRequest (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:401:9)
+    at async generateContent (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:865:22)
+    at async file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/google-genai/dist/chat_models.js:602:12
+    at async pRetry (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/core/dist/utils/p-retry/index.js:122:19)
+    at async run (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\p-queue\dist\index.js:163:29) {
+  status: 400,
+  statusText: 'Bad Request',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.ErrorInfo',
+      reason: 'API_KEY_INVALID',
+      domain: 'googleapis.com',
+      metadata: [Object]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
+      locale: 'en-US',
+      message: 'API key expired. Please renew the API key.'
+    }
+  ],
+  pregelTaskId: '51cb73f0-f072-542f-9326-5538f25e86b9'
+}
+Error generating content: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [400 Bad Request] API key expired. Please renew the API key. [{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"API_KEY_INVALID","domain":"googleapis.com","metadata":{"service":"generativelanguage.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"API key expired. Please renew the API key."}]
+    at handleResponseNotOk (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:432:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async makeRequest (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:401:9)
+    at async generateContent (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@google/generative-ai/dist/index.mjs:865:22)
+    at async file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/google-genai/dist/chat_models.js:602:12
+    at async pRetry (file:///C:/Users/ASUS/OneDrive/Desktop/Syncspace/backend/node_modules/@langchain/core/dist/utils/p-retry/index.js:122:19)
+    at async run (C:\Users\ASUS\OneDrive\Desktop\Syncspace\backend\node_modules\p-queue\dist\index.js:163:29) {
+  status: 400,
+  statusText: 'Bad Request',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.ErrorInfo',
+      reason: 'API_KEY_INVALID',
+      domain: 'googleapis.com',
+      metadata: [Object]
+    },
+    {
+      '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
+      locale: 'en-US',
+      message: 'API key expired. Please renew the API key.'
+    }
+  ],
+  pregelTaskId: 'b008334e-86e8-56f6-bc5a-6feda7af0ab9'
+}
