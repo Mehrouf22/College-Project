@@ -1,7 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Neotriad';
+  src: url('./fonts/neotriad.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Inter", sans-serif;
+  --font-display: "Neotriad", sans-serif;
 }
 
 @layer base {
@@ -26,7 +35,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
 }
 
 .splash-screen.fade-out {
@@ -52,10 +62,11 @@
 
 /* Main title: MATRINAX */
 .splash-title {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 800;
-  letter-spacing: 0.35em;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 10vw, 6rem);
+  font-weight: normal;
+  letter-spacing: 0.6em;
+  padding-left: 0.6em; /* Offset for centering due to heavy tracking */
   color: #ffffff;
   text-transform: uppercase;
   position: relative;
@@ -66,8 +77,9 @@
 .splash-title .letter {
   display: inline-block;
   opacity: 0;
-  transform: translateY(40px);
-  animation: letterReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(30px);
+  animation: letterReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
 }
 
 @keyframes letterReveal {
@@ -81,11 +93,12 @@
 .splash-line {
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
   margin-top: 24px;
-  animation: lineExpand 1s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+  animation: lineExpand 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.8s forwards;
   position: relative;
   z-index: 2;
+  will-change: width;
 }
 
 @keyframes lineExpand {
@@ -109,15 +122,15 @@
 .splash-progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, rgba(255,255,255,0.3), #ffffff);
+  background: linear-gradient(90deg, rgba(255,255,255,0.1), #ffffff);
   border-radius: 999px;
-  animation: progressFill 2s cubic-bezier(0.4, 0, 0.2, 1) 1.8s forwards;
+  animation: progressFill 2.5s cubic-bezier(0.65, 0, 0.35, 1) 1.2s forwards;
+  will-change: width;
 }
 
 @keyframes progressFill {
-  0% { width: 0%; }
-  60% { width: 70%; }
-  100% { width: 100%; }
+  0% { width: 0%; opacity: 0.3; }
+  100% { width: 100%; opacity: 1; }
 }
 
 /* Bottom tagline: "A Matrinax Product" */
@@ -296,10 +309,11 @@
 }
 
 .auth-logo-text {
+  font-family: var(--font-display);
   font-size: 1.75rem;
-  font-weight: 800;
+  font-weight: normal;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
 }
 
 .auth-subtitle {

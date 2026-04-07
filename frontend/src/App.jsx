@@ -419,8 +419,9 @@ function App() {
           <div className="animate-in fade-in slide-in-from-right-8 duration-500 flex flex-col md:flex-row gap-8">
             <div className="w-full md:w-1/2 bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl">
               <div className="mb-8 flex items-center gap-4">
-                <button onClick={() => navigateTo('dashboard')} className="text-slate-400 hover:text-white transition-colors">
-                  <ArrowRight className="w-5 h-5 rotate-180" />
+                <button onClick={() => navigateTo('dashboard')} className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors bg-slate-950/50 px-3 py-1.5 rounded-lg border border-slate-800">
+                  <ArrowRight className="w-4 h-4 rotate-180" />
+                  <span className="text-xs font-semibold uppercase tracking-wider">Back</span>
                 </button>
                 <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                   <Sparkles className="w-6 h-6 text-purple-400" /> Content Generator
@@ -471,8 +472,9 @@ function App() {
           <div className="animate-in fade-in slide-in-from-right-8 duration-500 flex flex-col md:flex-row gap-8">
             <div className="w-full md:w-1/2 bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl">
               <div className="mb-8 flex items-center gap-4">
-                <button onClick={() => navigateTo('dashboard')} className="text-slate-400 hover:text-white transition-colors">
-                  <ArrowRight className="w-5 h-5 rotate-180" />
+                <button onClick={() => navigateTo('dashboard')} className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors bg-slate-950/50 px-3 py-1.5 rounded-lg border border-slate-800">
+                  <ArrowRight className="w-4 h-4 rotate-180" />
+                  <span className="text-xs font-semibold uppercase tracking-wider">Back</span>
                 </button>
                 <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                   <Code2 className="w-6 h-6 text-blue-400" /> Component Generator
@@ -523,8 +525,9 @@ function App() {
           <div className="animate-in fade-in slide-in-from-right-8 duration-500 flex flex-col md:flex-row gap-8">
             <div className="w-full md:w-1/2 bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl">
               <div className="mb-8 flex items-center gap-4">
-                <button onClick={() => navigateTo('dashboard')} className="text-slate-400 hover:text-white transition-colors">
-                  <ArrowRight className="w-5 h-5 rotate-180" />
+                <button onClick={() => navigateTo('dashboard')} className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors bg-slate-950/50 px-3 py-1.5 rounded-lg border border-slate-800">
+                  <ArrowRight className="w-4 h-4 rotate-180" />
+                  <span className="text-xs font-semibold uppercase tracking-wider">Back</span>
                 </button>
                 <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                   <BookOpen className="w-6 h-6 text-emerald-400" /> Docs AI
@@ -575,8 +578,9 @@ function App() {
           <div className="animate-in fade-in slide-in-from-right-8 duration-500 flex flex-col md:flex-row gap-8">
             <div className="w-full md:w-1/2 bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl">
               <div className="mb-8 flex items-center gap-4">
-                <button onClick={() => navigateTo('dashboard')} className="text-slate-400 hover:text-white transition-colors">
-                  <ArrowRight className="w-5 h-5 rotate-180" />
+                <button onClick={() => navigateTo('dashboard')} className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors bg-slate-950/50 px-3 py-1.5 rounded-lg border border-slate-800">
+                  <ArrowRight className="w-4 h-4 rotate-180" />
+                  <span className="text-xs font-semibold uppercase tracking-wider">Back</span>
                 </button>
                 <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                   <FileText className="w-6 h-6 text-amber-500" /> Invoice Generator
