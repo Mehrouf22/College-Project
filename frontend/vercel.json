@@ -1,0 +1,5 @@
+{
+  "buildCommand": "vite build --base=/",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
