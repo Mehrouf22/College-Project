@@ -4,11 +4,10 @@ import { RunnableLambda } from "@langchain/core/runnables";
 import dotenv from 'dotenv';
 dotenv.config();
 
-// 1. Content AI (Gemini)
-export const geminiModel = new ChatGoogleGenerativeAI({
-  model: 'gemini-1.5-pro',
-  maxOutputTokens: 2048,
-  apiKey: process.env.GOOGLE_API_KEY || ''
+// 1. Content AI (Now using Mistral)
+export const geminiModel = new ChatMistralAI({
+  model: 'mistral-large-latest',
+  apiKey: process.env.MISTRAL_API_KEY || ''
 });
 
 // 2. Component AI (Mistral)

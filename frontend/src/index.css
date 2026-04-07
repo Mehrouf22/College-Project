@@ -11,3 +11,408 @@
     -webkit-font-smoothing: antialiased;
   }
 }
+
+/* ═══════════════════════════════════════════ */
+/*          MATRINAX SPLASH SCREEN            */
+/* ═══════════════════════════════════════════ */
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+/* Subtle radial gradient pulse behind the logo */
+.splash-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Main title: MATRINAX */
+.splash-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  color: #ffffff;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.splash-title .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: letterReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes letterReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Thin line that draws itself under the title */
+.splash-line {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  margin-top: 24px;
+  animation: lineExpand 1s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes lineExpand {
+  to { width: min(320px, 60vw); }
+}
+
+/* Progress bar */
+.splash-progress-track {
+  width: min(200px, 40vw);
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  margin-top: 48px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp 0.5s ease 1.6s forwards;
+}
+
+.splash-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.3), #ffffff);
+  border-radius: 999px;
+  animation: progressFill 2s cubic-bezier(0.4, 0, 0.2, 1) 1.8s forwards;
+}
+
+@keyframes progressFill {
+  0% { width: 0%; }
+  60% { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* Bottom tagline: "A Matrinax Product" */
+.splash-tagline {
+  position: absolute;
+  bottom: 48px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1.4s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Floating particles */
+.splash-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.splash-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════ */
+/*           AUTH SCREEN STYLES               */
+/* ═══════════════════════════════════════════ */
+
+.auth-page {
+  min-height: 100vh;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+/* Floating ambient orbs */
+.auth-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.auth-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: #8b5cf6;
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.auth-orb-2 {
+  width: 350px;
+  height: 350px;
+  background: #3b82f6;
+  bottom: -80px;
+  left: -80px;
+  animation-delay: -4s;
+}
+
+.auth-orb-3 {
+  width: 200px;
+  height: 200px;
+  background: #10b981;
+  top: 50%;
+  left: 50%;
+  animation-delay: -2s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* Auth card */
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 2;
+  animation: cardSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Auth card top accent line */
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.6), transparent);
+  border-radius: 999px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.auth-logo-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.25);
+}
+
+.auth-logo-text {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.875rem;
+  margin-bottom: 36px;
+  letter-spacing: 0.02em;
+}
+
+/* Input groups */
+.auth-input-group {
+  margin-bottom: 20px;
+}
+
+.auth-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.auth-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.auth-input::placeholder {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.auth-input:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Submit button */
+.auth-button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 8px;
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  border: none;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.auth-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+}
+
+/* Switch link */
+.auth-switch {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.auth-switch-link {
+  background: none;
+  border: none;
+  color: #8b5cf6;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.auth-switch-link:hover {
+  color: #a78bfa;
+}
+
+/* Bottom branding */
+.auth-branding {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.12);
+  z-index: 2;
+}
+
+/* Input row for 2-column layout */
+.auth-row {
+  display: flex;
+  gap: 12px;
+}
+
+.auth-row .auth-input-group {
+  flex: 1;
+}
+

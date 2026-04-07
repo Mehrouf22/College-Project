@@ -1,7 +1,193 @@
-import React, { useState } from 'react';
-import { Sparkles, Code2, BookOpen, FileText, ArrowRight, Loader2, Copy, CheckCircle2, Download } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Code2, BookOpen, FileText, ArrowRight, Loader2, Copy, CheckCircle2, Download, LogOut, User } from 'lucide-react';
 
+// ═══════════════════════════════════════════
+//        MATRINAX SPLASH SCREEN COMPONENT
+// ═══════════════════════════════════════════
+function SplashScreen({ onFinish }) {
+  const [fadeOut, setFadeOut] = useState(false);
+  const letters = 'MATRINAX'.split('');
+
+  const particles = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 4}s`,
+    duration: `${4 + Math.random() * 6}s`,
+    size: `${1 + Math.random() * 2}px`,
+  }));
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setFadeOut(true), 3800);
+    const removeTimer = setTimeout(() => onFinish(), 4600);
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeTimer);
+    };
+  }, [onFinish]);
+
+  return (
+    <div className={`splash-screen ${fadeOut ? 'fade-out' : ''}`}>
+      <div className="splash-glow" />
+      <div className="splash-particles">
+        {particles.map((p) => (
+          <div
+            key={p.id}
+            className="splash-particle"
+            style={{
+              left: p.left,
+              width: p.size,
+              height: p.size,
+              animationDelay: p.delay,
+              animationDuration: p.duration,
+            }}
+          />
+        ))}
+      </div>
+      <h1 className="splash-title">
+        {letters.map((char, i) => (
+          <span key={i} className="letter" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
+            {char}
+          </span>
+        ))}
+      </h1>
+      <div className="splash-line" />
+      <div className="splash-progress-track">
+        <div className="splash-progress-bar" />
+      </div>
+      <p className="splash-tagline">A Matrinax Product</p>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════
+//          AUTH SCREEN COMPONENT
+// ═══════════════════════════════════════════
+function AuthScreen({ onLogin }) {
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [authData, setAuthData] = useState({
+    fullName: '',
+    companyName: '',
+    email: '',
+    password: '',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Store user info locally
+    const userData = {
+      fullName: authData.fullName || 'User',
+      companyName: authData.companyName || '',
+      email: authData.email,
+    };
+    localStorage.setItem('syncspace_user', JSON.stringify(userData));
+    onLogin(userData);
+  };
+
+  const toggleMode = () => {
+    setIsSignUp(!isSignUp);
+    setAuthData({ fullName: '', companyName: '', email: '', password: '' });
+  };
+
+  return (
+    <div className="auth-page">
+      {/* Floating ambient orbs */}
+      <div className="auth-orb auth-orb-1" />
+      <div className="auth-orb auth-orb-2" />
+      <div className="auth-orb auth-orb-3" />
+
+      {/* Auth Card */}
+      <div className="auth-card" key={isSignUp ? 'signup' : 'login'}>
+        {/* Logo */}
+        <div className="auth-logo">
+          <div className="auth-logo-icon">
+            <Sparkles className="text-white" style={{ width: 22, height: 22 }} />
+          </div>
+          <span className="auth-logo-text">SyncSpace</span>
+        </div>
+        <p className="auth-subtitle">
+          {isSignUp ? 'Create your AI workspace account' : 'Welcome back to your workspace'}
+        </p>
+
+        <form onSubmit={handleSubmit}>
+          {isSignUp && (
+            <div className="auth-row">
+              <div className="auth-input-group">
+                <label className="auth-label">Full Name</label>
+                <input
+                  type="text"
+                  className="auth-input"
+                  placeholder="John Doe"
+                  required
+                  value={authData.fullName}
+                  onChange={(e) => setAuthData({ ...authData, fullName: e.target.value })}
+                />
+              </div>
+              <div className="auth-input-group">
+                <label className="auth-label">Company</label>
+                <input
+                  type="text"
+                  className="auth-input"
+                  placeholder="Matrinax Inc."
+                  value={authData.companyName}
+                  onChange={(e) => setAuthData({ ...authData, companyName: e.target.value })}
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="auth-input-group">
+            <label className="auth-label">Email Address</label>
+            <input
+              type="email"
+              className="auth-input"
+              placeholder="you@company.com"
+              required
+              value={authData.email}
+              onChange={(e) => setAuthData({ ...authData, email: e.target.value })}
+            />
+          </div>
+
+          <div className="auth-input-group">
+            <label className="auth-label">Password</label>
+            <input
+              type="password"
+              className="auth-input"
+              placeholder="••••••••"
+              required
+              minLength={6}
+              value={authData.password}
+              onChange={(e) => setAuthData({ ...authData, password: e.target.value })}
+            />
+          </div>
+
+          <button type="submit" className="auth-button">
+            {isSignUp ? 'Create Account' : 'Sign In'}
+          </button>
+        </form>
+
+        <p className="auth-switch">
+          {isSignUp ? 'Already have an account? ' : "Don't have an account? "}
+          <button className="auth-switch-link" onClick={toggleMode}>
+            {isSignUp ? 'Sign In' : 'Sign Up'}
+          </button>
+        </p>
+      </div>
+
+      {/* Bottom branding */}
+      <p className="auth-branding">A Matrinax Product</p>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════
+//              MAIN APP
+// ═══════════════════════════════════════════
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem('syncspace_user');
+    return saved ? JSON.parse(saved) : null;
+  });
   const [activeTab, setActiveTab] = useState('dashboard');
   
   // States for features
@@ -140,8 +326,26 @@ function App() {
     { id: 'invoice', title: 'Invoice Generator', icon: <FileText className="w-6 h-6 text-amber-400" />, desc: 'Create beautiful PDF invoices instantly without AI.' },
   ];
 
+  const handleLogout = () => {
+    localStorage.removeItem('syncspace_user');
+    setUser(null);
+    setActiveTab('dashboard');
+    setResult(null);
+  };
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans flex flex-col items-center py-12 px-4 selection:bg-purple-500/30">
+    <>
+      {/* MATRINAX Splash Screen */}
+      {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />}
+
+      {/* Auth Gate: Show login if not authenticated */}
+      {!showSplash && !user && (
+        <AuthScreen onLogin={(userData) => setUser(userData)} />
+      )}
+
+      {/* Main App: Only visible when logged in */}
+      {!showSplash && user && (
+      <div className="min-h-screen bg-slate-950 text-slate-200 font-sans flex flex-col items-center py-12 px-4 selection:bg-purple-500/30">
       
       {/* Header */}
       <div className="max-w-5xl w-full flex justify-between items-center mb-16">
@@ -151,9 +355,28 @@ function App() {
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">SyncSpace</h1>
         </div>
-        <div className="bg-slate-900 border border-slate-800 rounded-full px-5 py-2 text-sm font-medium text-slate-400 flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-          Workspace Active
+        <div className="flex items-center gap-3">
+          {/* User Info */}
+          <div className="hidden sm:flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-full px-4 py-2">
+            <User className="w-4 h-4 text-purple-400" />
+            <span className="text-sm text-slate-300 font-medium">{user.fullName}</span>
+            {user.companyName && (
+              <span className="text-xs text-slate-500">• {user.companyName}</span>
+            )}
+          </div>
+          {/* Status Badge */}
+          <div className="bg-slate-900 border border-slate-800 rounded-full px-4 py-2 text-sm font-medium text-slate-400 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+            Active
+          </div>
+          {/* Logout */}
+          <button
+            onClick={handleLogout}
+            className="bg-slate-900 border border-slate-800 rounded-full p-2.5 text-slate-400 hover:text-red-400 hover:border-red-500/30 transition-all"
+            title="Sign Out"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
@@ -162,7 +385,9 @@ function App() {
         {activeTab === 'dashboard' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="mb-12">
-              <h2 className="text-4xl font-extrabold text-white mb-4">Multi-Agent AI Workspace</h2>
+              <h2 className="text-4xl font-extrabold text-white mb-4">
+                Welcome back, {user.fullName.split(' ')[0]} 👋
+              </h2>
               <p className="text-slate-400 text-lg max-w-2xl">
                 Select a perfectly-tuned agent to supercharge your development workflow. Each tool is built with a separate underlying model for maximum performance.
               </p>
@@ -402,6 +627,8 @@ function App() {
       </div>
       
     </div>
+    )}
+    </>
   );
 }
 
